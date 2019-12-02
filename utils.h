@@ -19,4 +19,7 @@ struct Points {
 
 void createPoints(Points *dataset);
 
+void chooseCentroids(Points *dataset, Points *centroids);
+
 double euclideanDistance(Points *dataset, int idx1, int idx2);
+

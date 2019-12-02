@@ -6,10 +6,11 @@ int main() {
     printf("K-means initialization\n");
 
     // dataset creation and filling
-    Points dataset;
+    Points dataset, centroids;
     createPoints(&dataset);
 
+    chooseCentroids(&dataset, &centroids);
 
-
+    
     return 0;
 }
