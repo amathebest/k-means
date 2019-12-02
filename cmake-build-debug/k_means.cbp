@@ -83,6 +83,12 @@
 		<Unit filename="C:/Users/Matteo/Dropbox/University/11/PC/k-means/main.cpp">
 			<Option target="k_means"/>
 		</Unit>
+		<Unit filename="C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.cpp">
+			<Option target="k_means"/>
+		</Unit>
+		<Unit filename="C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.h">
+			<Option target="k_means"/>
+		</Unit>
 		<Unit filename="C:/Users/Matteo/Dropbox/University/11/PC/k-means/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

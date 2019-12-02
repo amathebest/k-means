@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Matteo/Dropbox/University/11/PC/k-means/main.cpp
+iostream
+-
+random
+-
+utils.h
+C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.h
+
+C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.h
+

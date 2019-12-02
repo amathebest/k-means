@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/k_means.dir/main.cpp.obj"
+  "CMakeFiles/k_means.dir/utils.cpp.obj"
   "k_means.exe"
   "k_means.exe.manifest"
   "k_means.pdb"

@@ -3,4 +3,4 @@ project(k_means)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(k_means main.cpp)
+add_executable(k_means main.cpp utils.h utils.cpp)
