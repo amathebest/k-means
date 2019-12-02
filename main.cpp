@@ -5,12 +5,9 @@ using namespace std;
 int main() {
     printf("K-means initialization\n");
 
+    // dataset creation and filling
     Points dataset;
-
     createPoints(&dataset);
-
-    printf("Size: %d", sizeof(dataset.x));
-
 
 
 

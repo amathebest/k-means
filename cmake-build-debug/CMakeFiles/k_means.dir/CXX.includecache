@@ -6,16 +6,12 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Matteo/Dropbox/University/11/PC/k-means/main.cpp
-random
--
-utils.h
-C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.h
-
 C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.cpp
-iostream
+stdio.h
 -
-random
+time.h
+-
+cmath
 -
 utils.h
 C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.h

@@ -13,9 +13,10 @@ const int NUM_CENTR = 20;
 // Struct that defines the shape of the dataset.
 // It will be defined as a SOA (= Structure Of Array), with 2 arrays: one for x value and one for the y value.
 struct Points {
-    double x[NUM_POINTS];
-    double y[NUM_POINTS];
+    float x[NUM_POINTS];
+    float y[NUM_POINTS];
 };
 
-
 void createPoints(Points *dataset);
+
+double euclideanDistance(Points *dataset, int idx1, int idx2);
