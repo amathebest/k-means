@@ -6,13 +6,21 @@ int main() {
     printf("K-means initialization\n");
 
     // Dataset creation and filling, centroid randomization
-    Points dataset, centroids;
+    Points dataset;
+    Centroids centroids;
     int niter = 10;
     createPoints(&dataset);
     chooseCentroids(&dataset, &centroids);
 
-    // Compute K-Means on the given 2D points in the dataset
+    for (int i = 0; i < NUM_CENTR; ++i) {
+        printf("Starting position of the centroid number %i: x = %f, y = %f\n", i+1, centroids.x[i], centroids.y[i]);
+    }
+
+    // Compute K-Means on the given 2D points in the dataset.
+    // Returns the number of points per cluster.
     computeKMeans(&dataset, &centroids, niter);
+
+    printf("-------------------------------------------------------------\n");
 
     // Outputs the final position of the centroids
     for (int i = 0; i < NUM_CENTR; ++i) {

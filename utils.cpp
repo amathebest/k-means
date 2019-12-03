@@ -18,7 +18,7 @@ void createPoints(Points *dataset) {
 }
 
 // Function that chooses random points from the dataset to be the cluster's initial centroids
-void chooseCentroids(Points *dataset, Points *centroids) {
+void chooseCentroids(Points *dataset, Centroids *centroids) {
     srand(time(NULL));
     for (int i = 0; i < NUM_CENTR; ++i) {
         int centr_idx = rand() % NUM_POINTS;
@@ -28,7 +28,7 @@ void chooseCentroids(Points *dataset, Points *centroids) {
 };
 
 // Function that computes and returns the Euclidean Distance between two chosen points
-float euclideanDistance(Points *dataset, Points *centroids, int idxPoint, int idxCentr) {
+float euclideanDistance(Points *dataset, Centroids *centroids, int idxPoint, int idxCentr) {
     return sqrt(pow(dataset->x[idxPoint] - centroids->x[idxCentr], 2) + pow(dataset->y[idxPoint] - centroids->y[idxCentr], 2));
 }
 
@@ -37,10 +37,10 @@ float euclideanDistance(Points *dataset, Points *centroids, int idxPoint, int id
 // It progressively modifies the coordinates of the centroids and stops when the problem converges.
 
 // Once tests are done replace the points and centroids pointers to the real ones.
-void computeKMeans(Points *dataset, Points *centroids, int niter) {
-    Points coords;
-    //int clustering[NUM_POINTS];
-    //int npoints[NUM_CENTR] = {0};
+void computeKMeans(Points *dataset, Centroids *centroids, int niter) {
+    Centroids coords;
+    int clustering[NUM_POINTS];
+    int npoints[NUM_CENTR] = {0};
 
     // Looping on iterations
     for (int i = 0; i < niter; ++i) {
@@ -57,9 +57,9 @@ void computeKMeans(Points *dataset, Points *centroids, int niter) {
                     closest_centr = k;
                 }
             }
-            //clustering[j] = closest_centr;
+            clustering[j] = closest_centr;
         }
-        /*
+
         // Computing the sum of the coordinates for each cluster
         for (int j = 0; j < NUM_POINTS; ++j) {
             coords.x[clustering[j]] += dataset->x[j];
@@ -75,7 +75,6 @@ void computeKMeans(Points *dataset, Points *centroids, int niter) {
             centroids->x[k] = coords.x[k] / npoints[k];
             centroids->y[k] = coords.y[k] / npoints[k];
         }
-        */
     }
 };
 
@@ -109,7 +108,6 @@ void createTestPoints(Points *testdata) {
     testdata->x[11] = 2.0;
     testdata->y[11] = 2.0;
 }
-
 // Function that chooses random points from the dataset to be the cluster's initial centroids
 void chooseTestCentroids(Points *testcentr) {
     testcentr->x[0] = 4.0;
