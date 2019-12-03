@@ -10,6 +10,10 @@
 const int NUM_POINTS = 100000;
 const int NUM_CENTR = 20;
 
+const int NUM_POINTS_t = 12;
+const int NUM_CENTR_t = 2;
+
+
 // Struct that defines the shape of the dataset.
 // It will be defined as a SOA (= Structure Of Array), with 2 arrays: one for x value and one for the y value.
 struct Points {
@@ -21,5 +25,12 @@ void createPoints(Points *dataset);
 
 void chooseCentroids(Points *dataset, Points *centroids);
 
-double euclideanDistance(Points *dataset, int idx1, int idx2);
+double euclideanDistance(Points **dataset, Points **centroids, int idxPoint, int idxCentr);
 
+void computeKMeans(Points *testdata, Points *testcentr, int niter);
+
+
+// Test functions
+void createTestPoints(Points *testdata);
+
+void chooseTestCentroids(Points *testcentr);
