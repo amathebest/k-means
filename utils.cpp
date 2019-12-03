@@ -29,35 +29,57 @@ void chooseCentroids(Points *dataset, Points *centroids) {
 };
 
 // Function that computes and returns the Euclidean Distance between two chosen points
-double euclideanDistance(Points **dataset, Points **centroids, int idxPoint, int idxCentr) {
-    Points *points = *dataset;
-    Points *clusters = *centroids;
-    return sqrt(pow(points->x[idxPoint] - clusters->x[idxCentr], 2) + pow(points->y[idxPoint] - clusters->y[idxCentr], 2));
+float euclideanDistance(Points *dataset, Points *centroids, int idxPoint, int idxCentr) {
+    return sqrt(pow(dataset->x[idxPoint] - centroids->x[idxCentr], 2) + pow(dataset->y[idxPoint] - centroids->y[idxCentr], 2));
 }
+
 
 // Actual K-Means function. Computes K-Means on a given 2D dataset with previously chosen centroids.
 // It progressively modifies the coordinates of the centroids and stops when the problem converges.
 
 // Once tests are done replace the points and centroids pointers to the real ones.
 void computeKMeans(Points *testdata, Points *testcentr, int niter) {
+    Points coords;
+    int clustering[NUM_POINTS_t];
+    int npoints[NUM_CENTR_t];
+
     // Looping on iterations
     for (int i = 0; i < niter; ++i) {
         // Looping on points
         for (int j = 0; j < NUM_POINTS_t; ++j) {
             int closest_centr = 0;
             float smallest_dist = std::numeric_limits<float>::max();
-
             // Looping on centroids to find the closest
             for (int k = 0; k < NUM_CENTR_t; ++k) {
-                double distance = euclideanDistance(&testdata, &testcentr, j, k);
+                float distance = euclideanDistance(testdata, testcentr, j, k);
+                // Assigning the j-th point to the closest cluster
                 if (distance < smallest_dist) {
                     smallest_dist = distance;
                     closest_centr = k;
+                    clustering[j] = closest_centr;
                 }
             }
         }
 
+        // Computing the sum of the coordinates for each cluster
+        for (int j = 0; j < NUM_POINTS_t; ++j) {
+            coords.x[clustering[j]] += testdata->x[j];
+            coords.y[clustering[j]] += testdata->y[j];
+            npoints[clustering[j]] += 1;
+        }
 
+        // Computing the new centroid coordinates
+        for (int k = 0; k < NUM_CENTR_t; ++k) {
+            if (npoints[k] == 0) {
+                npoints[k] = 1;
+            }
+            testcentr->x[k] = coords.x[k] / npoints[k];
+            testcentr->y[k] = coords.y[k] / npoints[k];
+        }
+
+    }
+    for (int i = 0; i < NUM_POINTS_t; ++i) {
+        printf("Point %i is in cluster %i\n", i, clustering[i]);
     }
 };
 
