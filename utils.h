@@ -15,11 +15,15 @@ const int NUM_CENTR = 20;
 struct Points {
     float x[NUM_POINTS];
     float y[NUM_POINTS];
+    int cluster[NUM_POINTS];
 };
 
 struct Centroids {
     float x[NUM_CENTR];
     float y[NUM_CENTR];
+    float x_accumulator[NUM_CENTR];
+    float y_accumulator[NUM_CENTR];
+    int npoints[NUM_CENTR];
 };
 
 void createPoints(Points *dataset);
@@ -27,6 +31,8 @@ void createPoints(Points *dataset);
 void chooseCentroids(Points *dataset, Centroids *centroids);
 
 float euclideanDistance(Points *dataset, Centroids *centroids, int idxPoint, int idxCentr);
+
+void reset_centroid_acc(Centroids *centroids, int idxCentr);
 
 void computeKMeans(Points *dataset, Centroids *centroids, int niter);
 

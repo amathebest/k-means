@@ -12,7 +12,7 @@ int main() {
     Points dataset;
     Centroids centroids;
     int niter = 10;
-    bool parallel = true;
+    bool parallel = false;
 
     createPoints(&dataset);
     chooseCentroids(&dataset, &centroids);
@@ -20,7 +20,18 @@ int main() {
     // Compute K-Means on the given 2D points in the dataset.
     // Returns the number of points per cluster.
     if (parallel == true) {
+        for (int i = 0; i < NUM_CENTR; ++i) {
+            printf("Starting position of the centroid number %i: x = %f, y = %f\n", i+1, centroids.x[i], centroids.y[i]);
+        }
+        double time_1 = omp_get_wtime();
         computeKMeans_parallel(&dataset, &centroids, niter);
+        double time_2 = omp_get_wtime();
+        float time = time_2 - time_1;
+        printf("--------------------------------------------------------------------- Computation took %f seconds\n", time);
+        // Outputs the final position of the centroids
+        for (int i = 0; i < NUM_CENTR; ++i) {
+            printf("Final position of the centroid number %i: x = %f, y = %f\n", i+1, centroids.x[i], centroids.y[i]);
+        }
     } else {
         for (int i = 0; i < NUM_CENTR; ++i) {
             printf("Starting position of the centroid number %i: x = %f, y = %f\n", i+1, centroids.x[i], centroids.y[i]);
