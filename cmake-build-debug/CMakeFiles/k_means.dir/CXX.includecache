@@ -6,13 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/amato/Dropbox/University/11/PC/k-means/main.cpp
-random
--
-utils.h
-C:/Users/amato/Dropbox/University/11/PC/k-means/utils.h
-
-C:/Users/amato/Dropbox/University/11/PC/k-means/utils.cpp
+C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.cpp
 stdio.h
 -
 time.h
@@ -21,8 +15,12 @@ cmath
 -
 limits
 -
+omp.h
+-
+algorithm
+-
 utils.h
-C:/Users/amato/Dropbox/University/11/PC/k-means/utils.h
+C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.h
 
-C:/Users/amato/Dropbox/University/11/PC/k-means/utils.h
+C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.h
 

@@ -5,59 +5,27 @@
 #include <time.h>
 #include <cmath>
 #include <limits>
+#include <omp.h>
+#include <algorithm>
 #include "utils.h"
 
 // Function that creates the dataset composed of N points
-void createPoints(Points *dataset, bool test) {
-    if (test == true) {
-        dataset->x[0] = 4.0;
-        dataset->y[0] = 4.0;
-        dataset->x[1] = 3.0;
-        dataset->y[1] = 5.0;
-        dataset->x[2] = 5.0;
-        dataset->y[2] = 5.0;
-        dataset->x[3] = 6.0;
-        dataset->y[3] = 4.0;
-        dataset->x[4] = 7.0;
-        dataset->y[4] = 3.0;
-        dataset->x[5] = 6.0;
-        dataset->y[5] = 2.0;
-        dataset->x[6] = 6.0;
-        dataset->y[6] = 3.0;
-        dataset->x[7] = 8.0;
-        dataset->y[7] = 4.0;
-        dataset->x[8] = 3.0;
-        dataset->y[8] = 3.0;
-        dataset->x[9] = 2.0;
-        dataset->y[9] = 6.0;
-        dataset->x[10] = 3.0;
-        dataset->y[10] = 2.0;
-        dataset->x[11] = 2.0;
-        dataset->y[11] = 2.0;
-    } else {
-        int upper_bound = 100.0;
-        srand(time(NULL));
-        for (int i = 0; i < NUM_POINTS; ++i) {
-            dataset->x[i] = (float)rand() / (float)RAND_MAX * upper_bound;
-            dataset->y[i] = (float)rand() / (float)RAND_MAX * upper_bound;
-        }
+void createPoints(Points *dataset) {
+    int upper_bound = 100.0;
+    srand(time(NULL));
+    for (int i = 0; i < NUM_POINTS; ++i) {
+        dataset->x[i] = (float)rand() / (float)RAND_MAX * upper_bound;
+        dataset->y[i] = (float)rand() / (float)RAND_MAX * upper_bound;
     }
 }
 
 // Function that chooses random points from the dataset to be the cluster's initial centroids
-void chooseCentroids(Points *dataset, Centroids *centroids, bool test) {
-    if (test == true) {
-        centroids->x[0] = 4.0;
-        centroids->y[0] = 2.0;
-        centroids->x[1] = 4.0;
-        centroids->y[1] = 3.0;
-    } else {
-        srand(time(NULL));
-        for (int i = 0; i < NUM_CENTR; ++i) {
-            int centr_idx = rand() % NUM_POINTS;
-            centroids->x[i] = dataset->x[centr_idx];
-            centroids->y[i] = dataset->y[centr_idx];
-        }
+void chooseCentroids(Points *dataset, Centroids *centroids) {
+    srand(time(NULL));
+    for (int i = 0; i < NUM_CENTR; ++i) {
+        int centr_idx = rand() % NUM_POINTS;
+        centroids->x[i] = dataset->x[centr_idx];
+        centroids->y[i] = dataset->y[centr_idx];
     }
 };
 
@@ -69,7 +37,7 @@ float euclideanDistance(Points *dataset, Centroids *centroids, int idxPoint, int
 
 // Actual K-Means function. Computes K-Means on a given 2D dataset with previously chosen centroids.
 // It progressively modifies the coordinates of the centroids and stops when the problem converges.
-void computeKMeans(Points *dataset, Centroids *centroids, int niter, bool test) {
+void computeKMeans(Points *dataset, Centroids *centroids, int niter) {
     Centroids coords;
     int clustering[NUM_POINTS];
     int npoints[NUM_CENTR] = {0};
@@ -101,12 +69,17 @@ void computeKMeans(Points *dataset, Centroids *centroids, int niter, bool test) 
 
         // Computing the new centroid coordinates
         for (int k = 0; k < NUM_CENTR; ++k) {
-            if (npoints[k] == 0) {
-                npoints[k] = 1;
+            if (coords.x[k] != 0) {
+                centroids->x[k] = coords.x[k] / std::max(npoints[k], 1);
+                centroids->y[k] = coords.y[k] / std::max(npoints[k], 1);
             }
-            centroids->x[k] = coords.x[k] / npoints[k];
-            centroids->y[k] = coords.y[k] / npoints[k];
         }
     }
 };
 
+// Actual K-Means function. Computes K-Means on a given 2D dataset with previously chosen centroids.
+// It progressively modifies the coordinates of the centroids and stops when the problem converges.
+void computeKMeans_parallel(Points *dataset, Centroids *centroids, int niter) {
+    printf("Using %d processors for computation.\n", omp_get_num_procs());
+
+}

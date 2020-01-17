@@ -33,19 +33,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.2.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "E:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2019.2.3\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "E:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\amato\Dropbox\University\11\PC\k-means
+CMAKE_SOURCE_DIR = C:\Users\Matteo\Dropbox\University\11\PC\k-means
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\amato\Dropbox\University\11\PC\k-means\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Matteo\Dropbox\University\11\PC\k-means\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/k_means.dir/depend.make
@@ -58,29 +58,29 @@ include CMakeFiles/k_means.dir/flags.make
 
 CMakeFiles/k_means.dir/main.cpp.obj: CMakeFiles/k_means.dir/flags.make
 CMakeFiles/k_means.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\amato\Dropbox\University\11\PC\k-means\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/k_means.dir/main.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\k_means.dir\main.cpp.obj -c C:\Users\amato\Dropbox\University\11\PC\k-means\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Matteo\Dropbox\University\11\PC\k-means\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/k_means.dir/main.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\k_means.dir\main.cpp.obj -c C:\Users\Matteo\Dropbox\University\11\PC\k-means\main.cpp
 
 CMakeFiles/k_means.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/k_means.dir/main.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\amato\Dropbox\University\11\PC\k-means\main.cpp > CMakeFiles\k_means.dir\main.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Matteo\Dropbox\University\11\PC\k-means\main.cpp > CMakeFiles\k_means.dir\main.cpp.i
 
 CMakeFiles/k_means.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/k_means.dir/main.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\amato\Dropbox\University\11\PC\k-means\main.cpp -o CMakeFiles\k_means.dir\main.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Matteo\Dropbox\University\11\PC\k-means\main.cpp -o CMakeFiles\k_means.dir\main.cpp.s
 
 CMakeFiles/k_means.dir/utils.cpp.obj: CMakeFiles/k_means.dir/flags.make
 CMakeFiles/k_means.dir/utils.cpp.obj: ../utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\amato\Dropbox\University\11\PC\k-means\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/k_means.dir/utils.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\k_means.dir\utils.cpp.obj -c C:\Users\amato\Dropbox\University\11\PC\k-means\utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Matteo\Dropbox\University\11\PC\k-means\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/k_means.dir/utils.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\k_means.dir\utils.cpp.obj -c C:\Users\Matteo\Dropbox\University\11\PC\k-means\utils.cpp
 
 CMakeFiles/k_means.dir/utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/k_means.dir/utils.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\amato\Dropbox\University\11\PC\k-means\utils.cpp > CMakeFiles\k_means.dir\utils.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Matteo\Dropbox\University\11\PC\k-means\utils.cpp > CMakeFiles\k_means.dir\utils.cpp.i
 
 CMakeFiles/k_means.dir/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/k_means.dir/utils.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\amato\Dropbox\University\11\PC\k-means\utils.cpp -o CMakeFiles\k_means.dir\utils.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Matteo\Dropbox\University\11\PC\k-means\utils.cpp -o CMakeFiles\k_means.dir\utils.cpp.s
 
 # Object files for target k_means
 k_means_OBJECTS = \
@@ -96,7 +96,7 @@ k_means.exe: CMakeFiles/k_means.dir/build.make
 k_means.exe: CMakeFiles/k_means.dir/linklibs.rsp
 k_means.exe: CMakeFiles/k_means.dir/objects1.rsp
 k_means.exe: CMakeFiles/k_means.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\amato\Dropbox\University\11\PC\k-means\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable k_means.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Matteo\Dropbox\University\11\PC\k-means\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable k_means.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\k_means.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -109,6 +109,6 @@ CMakeFiles/k_means.dir/clean:
 .PHONY : CMakeFiles/k_means.dir/clean
 
 CMakeFiles/k_means.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\amato\Dropbox\University\11\PC\k-means C:\Users\amato\Dropbox\University\11\PC\k-means C:\Users\amato\Dropbox\University\11\PC\k-means\cmake-build-debug C:\Users\amato\Dropbox\University\11\PC\k-means\cmake-build-debug C:\Users\amato\Dropbox\University\11\PC\k-means\cmake-build-debug\CMakeFiles\k_means.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Matteo\Dropbox\University\11\PC\k-means C:\Users\Matteo\Dropbox\University\11\PC\k-means C:\Users\Matteo\Dropbox\University\11\PC\k-means\cmake-build-debug C:\Users\Matteo\Dropbox\University\11\PC\k-means\cmake-build-debug C:\Users\Matteo\Dropbox\University\11\PC\k-means\cmake-build-debug\CMakeFiles\k_means.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/k_means.dir/depend
 
