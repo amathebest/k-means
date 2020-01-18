@@ -37,3 +37,5 @@ void reset_centroid_acc(Centroids *centroids, int idxCentr);
 void computeKMeans(Points *dataset, Centroids *centroids, int niter);
 
 void computeKMeans_parallel(Points *dataset, Centroids *centroids, int niter);
+
+void addPointToCluster(Points *dataset, Centroids *centroids, int idxPoint);
