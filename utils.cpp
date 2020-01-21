@@ -1,11 +1,9 @@
 //
 // Created by Matteo on 02/12/2019.
 //
-#include <stdio.h>
 #include <time.h>
 #include <cmath>
 #include <limits>
-#include <omp.h>
 #include <algorithm>
 #include <vector>
 #include "utils.h"

@@ -19,15 +19,11 @@ utils.h
 C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.h
 
 C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.cpp
-stdio.h
--
 time.h
 -
 cmath
 -
 limits
--
-omp.h
 -
 algorithm
 -

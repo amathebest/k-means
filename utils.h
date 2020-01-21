@@ -4,8 +4,6 @@
 #ifndef K_MEANS_UTILS_H
 #define K_MEANS_UTILS_H
 
-#endif //K_MEANS_UTILS_H
-
 // Number of points and centroids
 const int NUM_POINTS = 100000;
 const int NUM_CENTR = 20;
@@ -39,3 +37,5 @@ void computeKMeans(Points *dataset, Centroids *centroids, int niter);
 void computeKMeans_parallel(Points *dataset, Centroids *centroids, int niter);
 
 void addPointToCluster(Points *dataset, Centroids *centroids, int idxPoint);
+
+#endif //K_MEANS_UTILS_H
