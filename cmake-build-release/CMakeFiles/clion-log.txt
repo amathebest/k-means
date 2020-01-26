@@ -1,0 +1,4 @@
+"E:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - MinGW Makefiles" C:\Users\Matteo\Dropbox\University\11\PC\k-means
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/Matteo/Dropbox/University/11/PC/k-means/cmake-build-release
