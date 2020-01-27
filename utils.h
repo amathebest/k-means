@@ -6,51 +6,45 @@
 
 using namespace std;
 
-// Number of points and centroids
+// Initialization of constants
 const int NUM_POINTS = 200000;
 const int NUM_CENTR = 20;
+const float upper_bound = 1000.0;
+const int niter = 10;
+const bool parallel = true;
 
-// Struct that defines the shape of the dataset.
+// Class that defines the shape of the dataset.
 // It will be defined as a SOA with 3 arrays: one for x value, one for the y value and the last one for the cluster that the point belongs to.
 class Dataset {
 private:
     vector<float> x;
     vector<float> y;
     vector<int> cluster;
-    int length;
 
 public:
     Dataset(vector<float> x, vector<float> y, vector<int> cluster) {
         this->x = x;
         this->y = y;
-        this-> cluster;
-        this->length = x.size();
+        this->cluster = cluster;
     }
 
     // Getters
-    const vector<float> &getXorY(bool type) {
-        if (type == true) {
-            return this->x;
-        } else {
-            return this->y;
-        }
+    float getXValue(int index) {
+        return this->x[index];
     }
 
-    const vector<int> &getClusters() {
-        return this->cluster;
+    float getYValue(int index) {
+        return this->y[index];
+    }
+
+    int getCluster(int index) {
+        return this->cluster[index];
     }
 
     // Setters
     void setCluster(int i, int cluster) {
-        this->x[i] = cluster;
+        this->cluster[i] = cluster;
     }
-
-};
-
-struct Points {
-    vector<float> x;
-    vector<float> y;
-    vector<int> cluster;
 };
 
 struct Centroids {
@@ -61,18 +55,17 @@ struct Centroids {
     int npoints[NUM_CENTR];
 };
 
-void createPoints(Points *dataset);
+// Functions declarations
+void chooseCentroids(Dataset &dataset, Centroids *centroids);
 
-void chooseCentroids(Points *dataset, Centroids *centroids);
-
-float euclideanDistance(Points *dataset, Centroids *centroids, int idxPoint, int idxCentr);
+float euclideanDistance(Dataset &dataset, Centroids *centroids, int idxPoint, int idxCentr);
 
 void reset_centroid_acc(Centroids *centroids, int idxCentr);
 
-void computeKMeans(Points *dataset, Centroids *centroids, int niter);
+void computeKMeans(Dataset &dataset, Centroids *centroids);
 
-void computeKMeans_parallel(Points *dataset, Centroids *centroids, int niter);
+void computeKMeans_parallel(Dataset &dataset, Centroids *centroids);
 
-void addPointToCluster(Points *dataset, Centroids *centroids, int idxPoint);
+void addPointToCluster_par(Dataset &dataset, Centroids *centroids, int idxPoint);
 
 #endif //K_MEANS_UTILS_H

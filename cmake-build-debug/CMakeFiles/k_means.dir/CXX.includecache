@@ -9,6 +9,8 @@
 C:/Users/Matteo/Dropbox/University/11/PC/k-means/main.cpp
 random
 -
+iostream
+-
 chrono
 -
 cstdio
@@ -28,6 +30,8 @@ limits
 algorithm
 -
 vector
+-
+iostream
 -
 utils.h
 C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.h
