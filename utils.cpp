@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <omp.h>
 #include "utils.h"
 
 using namespace std;
@@ -18,6 +19,9 @@ void chooseCentroids(Dataset &dataset, Centroids *centroids) {
         int centr_idx = rand() % NUM_POINTS;
         centroids->x[i] = dataset.getXValue(centr_idx);
         centroids->y[i] = dataset.getYValue(centr_idx);
+        centroids->x_accumulator[i] = 0;
+        centroids->y_accumulator[i] = 0;
+        centroids->npoints[i] = 0;
     }
 };
 
@@ -34,7 +38,10 @@ void reset_centroid_acc(Centroids *centroids, int idxCentr) {
 }
 
 // Function that adds a point to a cluster using OpenMP atomic directive to make each operation atomic
-void addPointToCluster_par(Dataset &dataset, Centroids *centroids, int idxPoint) {
+void addPointToCluster(Dataset &dataset, Centroids *centroids, int idxPoint) {
+    printf("[X]: thid: %i, cluster: %i, acc: %f, val: %f\n", omp_get_thread_num(), dataset.getCluster(idxPoint), centroids->x_accumulator[dataset.getCluster(idxPoint)], dataset.getXValue(idxPoint));
+    printf("[Y]: thid: %i, cluster: %i, acc: %f, val: %f\n", omp_get_thread_num(), dataset.getCluster(idxPoint), centroids->y_accumulator[dataset.getCluster(idxPoint)], dataset.getYValue(idxPoint));
+    printf("[np]: cluster: %i, npts: %i\n", dataset.getCluster(idxPoint), centroids->npoints[dataset.getCluster(idxPoint)]);
 #pragma omp atomic
     centroids->x_accumulator[dataset.getCluster(idxPoint)] += dataset.getXValue(idxPoint);
 #pragma omp atomic
@@ -62,13 +69,7 @@ void computeKMeans(Dataset &dataset, Centroids *centroids) {
                 }
             }
             dataset.setCluster(j, closest_centr);
-        }
-
-        // Computing the sum of the coordinates for each cluster
-        for (int j = 0; j < NUM_POINTS; j++) {
-            centroids->x_accumulator[dataset.getCluster(j)] += dataset.getXValue(j);
-            centroids->y_accumulator[dataset.getCluster(j)] += dataset.getYValue(j);
-            centroids->npoints[dataset.getCluster(j)] += 1;
+            addPointToCluster(dataset, centroids, j);
         }
 
         // Computing the new centroid coordinates
@@ -92,9 +93,10 @@ void computeKMeans_parallel(Dataset &dataset, Centroids *centroids) {
         // Looping on centroids to find the closest (parallel version)
 #pragma omp parallel default(shared) private(smallest_dist, closest_centr)
         {
+            printf("thid %i\n", omp_get_thread_num());
 #pragma omp for schedule(static)
-            for (int j = 0; j < NUM_POINTS; j++) {
-                for (int k = 0; k < NUM_CENTR; k++) {
+            for (int j = 0; j < NUM_POINTS; ++j) {
+                for (int k = 0; k < NUM_CENTR; ++k) {
                     float current_dist = euclideanDistance(dataset, centroids, j, k);
                     // Assigning the j-th point to the closest cluster
                     if (current_dist < smallest_dist) {
@@ -103,11 +105,7 @@ void computeKMeans_parallel(Dataset &dataset, Centroids *centroids) {
                     }
                 }
                 dataset.setCluster(j, closest_centr);
-            }
-
-            // Computing the sum of the coordinates for each cluster
-            for (int j = 0; j < NUM_POINTS; j++) {
-                addPointToCluster_par(dataset, centroids, j);
+                addPointToCluster(dataset, centroids, j);
             }
         }
 

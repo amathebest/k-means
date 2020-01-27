@@ -30,7 +30,6 @@ int main() {
 
     for (int i = 0; i < NUM_CENTR; i++) {
         printf("Starting position of the centroid number %i: x = %f, y = %f\n", i+1, centroids.x[i], centroids.y[i]);
-        reset_centroid_acc(&centroids, i);
     }
 
     steady_clock::time_point time_1 = steady_clock::now();

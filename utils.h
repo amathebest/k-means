@@ -66,6 +66,6 @@ void computeKMeans(Dataset &dataset, Centroids *centroids);
 
 void computeKMeans_parallel(Dataset &dataset, Centroids *centroids);
 
-void addPointToCluster_par(Dataset &dataset, Centroids *centroids, int idxPoint);
+void addPointToCluster(Dataset &dataset, Centroids *centroids, int idxPoint);
 
 #endif //K_MEANS_UTILS_H

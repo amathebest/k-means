@@ -6,20 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Matteo/Dropbox/University/11/PC/k-means/main.cpp
-random
--
-iostream
--
-chrono
--
-cstdio
--
-omp.h
--
-utils.h
-C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.h
-
 C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.cpp
 time.h
 -
@@ -32,6 +18,8 @@ algorithm
 vector
 -
 iostream
+-
+omp.h
 -
 utils.h
 C:/Users/Matteo/Dropbox/University/11/PC/k-means/utils.h
