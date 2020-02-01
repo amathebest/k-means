@@ -7,7 +7,7 @@
 using namespace std;
 
 // Initialization of constants
-const int NUM_POINTS = 2000000;
+const int NUM_POINTS = 100000;
 const int NUM_CENTR = 20;
 const float upper_bound = 1000.0;
 const int niter = 10;

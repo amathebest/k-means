@@ -6,8 +6,6 @@
 #include <limits>
 #include <algorithm>
 #include <vector>
-#include <iostream>
-#include <omp.h>
 #include "utils.h"
 
 using namespace std;
@@ -86,7 +84,7 @@ void computeKMeans_parallel(Dataset &dataset, Centroids *centroids) {
         float smallest_dist;
         Centroids local_centroids;
         // Looping on centroids to find the closest (parallel version)
-#pragma omp parallel default(shared) private(smallest_dist, closest_centr, local_centroids)
+#pragma omp parallel default(shared) private(smallest_dist, closest_centr, local_centroids)// num_threads(16)
         {
             local_centroids = *centroids;
 #pragma omp for schedule(static)
